@@ -45,7 +45,8 @@ class FavsView(APIView):
 
     def get(self, request):
         user = request.user
-        serializer = RoomSerializer(user.favs.all(), many=True).data
+        serializer = RoomSerializer(user.favs.all(), many=True, context={
+                                    "request": request}).data
         return Response(serializer)
 
     def put(self, request):
