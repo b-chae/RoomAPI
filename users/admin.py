@@ -8,6 +8,7 @@ class UserAdmin(UserAdmin):
 
     fieldsets = UserAdmin.fieldsets + (
         ("Custom Profile", {"fields": ("avatar", "superhost",)},),
+        ("Favs", {"fields": ("favs",)},)
     )
 
     list_display = UserAdmin.list_display + ("room_count",)
